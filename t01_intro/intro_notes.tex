@@ -1,24 +1,27 @@
 \chapter{Introduction}
 \label{ch:intro}
 
-\linktocodefiles
-
 \section{What's it all about?}
 \label{sec:whats-it-all-about}
 
-Cloud computing is essentially renting computing resources as needed to
-build-up systems in a quick self-service way. Think of it as booking a
-ryanair flight (vs buying your own plane), renting a car in a foreign
-country (vs buying one) or taking an AirBNB (vs buying a holiday home).
+Cloud computing is essentially \textbf{USING SOMEONE ELSE'S COMPUTER!}.
+
+The customer rents computing resources as needed to
+build-up systems in a quick self-service way. Think of it as:
+\begin{itemize}
+\item booking a ryanair flight (vs buying your own plane)
+\item renting a car in a foreign country (vs buying one) or
+\item taking an AirBNB (vs buying a holiday home).
+\end{itemize}
+
 Like travel planning, learning how to design, provision and utilise
 cloud computing resources is a learned skill developed through practice.
 
 \section{Backend}
 \label{sec:backend}
 
-In this module we will primarily focus on backend processing, as opposed
-to frontend computing (desktops, mobile devices). As with any computing
-system, backend processing generally involves three key ingredients:
+In this module we will primarily focus on backend processing, as opposed to frontend computing (desktops, mobile devices).
+As with any computing system, backend processing generally involves three key ingredients:
 
 \begin{description}
 \item[Compute power:]
@@ -188,24 +191,8 @@ short-term basis.
 \section{Main providers}
 \label{sec:main-providers}
 
-The main cloud providers are shown in \autoref{tab:main-cloud-providers}.
+Main cloud providers: AWS, Azure, Google, IBM, Oracle \& more, DigitalOcean. 
 
-\begin{table}
-  \centering
-  \begin{tabular}{l l l}
-    \toprule
-    \textbf{Provider} & \textbf{Service} & ~\\
-    \midrule
-    Amazon & Amazon Web Services & AWS\\
-    Microsoft & Azure & ~\\
-    Google & Google Compute Cloud &\\
-    IBM & IBM Cloud &\\
-    Digital Ocean & &\\
-    \bottomrule
-  \end{tabular}
-  \caption{Main cloud providers}
-  \label{tab:main-cloud-providers}
-\end{table}
 
 \section{Cloud service models}
 \label{sec:cloud-service-models}
@@ -245,17 +232,15 @@ protocols (HTTP/RDP/SSH) either by humans or an API (e.g.~Github).
 \end{description}
 
 In reality, the lines between IaaS, PaaS and SaaS are often blurred.
-They are probably better thought of as a continuum from SaaS through
-PaaS to IaaS. It can be difficult to place many cloud services
-exclusively into one of these three categories, nor is it necessary to.
-Many solutions built including cloud technologies will include all
-three.
+They are probably better thought of as a continuum from SaaS through PaaS to IaaS.
+It can be difficult to place many cloud services exclusively into one of these three categories, nor is it necessary to.
+Many solutions built including cloud technologies will include all three.
+
 
 \section{Interface}
 \label{sec:interface}
 
-Most cloud providers support a number of channels for provisioning
-resources and interacting with them:
+Most cloud providers support a number of channels for provisioning resources and interacting with them:
 
 \begin{description}
 \item[Web console]
@@ -280,7 +265,10 @@ PowerShell / Bash
   examples. For AWS try typing \texttt{aws\ help}.
 \item
   CLI avoids cumbersome manual login process - another reason to use it.
+\item
+  The CLI is available from the web console in AWS, Google \& others.
 \end{itemize}
+
 \item[Software Development Kit (SDK):]
 for applications running on cloud and elsewhere (local desktop, mobile)
 that need to interact with cloud resources.
@@ -293,6 +281,48 @@ that need to interact with cloud resources.
   provisioned on AWS SQS.
 \end{itemize}
 \end{description}
+
+
+
+\section{Service agreement}\label{service-agreement}
+
+Cloud Providers will offer their services as part of a service
+agreement, which specifies a number of promises, limitations and
+obligations:
+
+\begin{description}
+\item[Promises]
+are guarantees by the cloud provider of things it will do for the
+customer.
+\item[Limitations]
+limit the scope of the promises that a cloud provider makes to a
+customer.
+\item[Obligations]
+specify rules that a customer must comply with when using the cloud
+service.
+\end{description}
+
+\section{Costs}
+\label{sec:costs}
+
+Metered costs for cloud usage depend on the particular service under
+discussion. Broadly, these will break down into:
+
+\begin{table}
+  \begin{tabularx}{1.0\linewidth}{l l X}
+    \toprule
+    \textbf{Charge type} & \textbf{Common units} & \textbf{Remarks}\\
+    \midrule
+    Setup/teardown & Per resource unit & ~ \\
+    Time-based & Days / hours / mins / seconds & Often for IaaS components\\
+    Usage-based & Requests / invocations & Often for PaaS components\\
+    Data Storage & MB / GB / TB etc & Data at rest\\
+    Data Transfer & MB / GB / TB etc & Inbound, outbound, internal may differ\\
+    \bottomrule
+  \end{tabularx}
+  \caption{Cloud charge types}
+  \label{tab:cloud-charge-types}
+\end{table}
 
 
 
