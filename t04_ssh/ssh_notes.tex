@@ -1,5 +1,5 @@
 \chapter{Secure SHell (SSH)}
-
+\label{ch:ssh}
 
 \section{Shell}
 
@@ -94,14 +94,14 @@ shared around, even put up in public.)
 \subsection{Creating key pair (windows 10, mac, linux)}
 \label{sec:creating-key-pair}
 
-Key pairs are created on your own local client computer.
+Key pairs are normally and ideally created on your own local client computer.
 Key pairs only need to be generated once.
-If you already have a key pair created, you can skip on ahead to ???.
+(If you already have a key pair created, you can skip on ahead...)
 
-To create a 4096-bit RSA key pair, in Powershell/Bash type:
+To create an ED25519 key pair, in Powershell/Bash type:
 
 \begin{verbatim}
-ssh-keygen -t rsa -b 4096
+ssh-keygen -t ed25519
 \end{verbatim}
 
 You can optionally use a passphrase to encrypt the key pair or leave it blank for easier usage.
@@ -138,7 +138,7 @@ anybody can use it.
 
 In PowerShell/Bash we can use the SSH command to connect to the SSH server on a remote host.
 This will then present us with a new shell on the remote computer (Bash for Linux/UNIX, PowerShell for Windows).
-By default, SSH will try all private keys so we don't need to specify which.
+By default, SSH will try all private keys in \texttt{.ssh} so we don't need to specify which.
 
 \begin{verbatim}
 ssh student@$publicIp 
