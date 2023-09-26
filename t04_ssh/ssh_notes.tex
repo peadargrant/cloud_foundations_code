@@ -15,6 +15,41 @@ We will return to more details of shell interfaces later on.
 \item[Path:] list of folders searched for matching command name
 \end{description}
 
+\subsection{Navigation}
+
+In the command-line environment we navigate the exact same set of folders as we see in the File Explorer / Finder.
+Some hints on navigation (applies to PowerShell and Bash):
+
+\begin{verbatim}
+# print out the folder you're in (i.e. the working directory)
+pwd
+
+# list out the contents of the folder you're in
+ls
+dir   # on windows
+ls -l # detail, linux/mac only
+
+# change to a sub-directory of where you are now
+cd movies
+
+# directly change to a sub-sub-directory
+cd movies/horror
+
+# change to the parent directory
+cd ..
+
+# change to your home directory
+cd ~
+
+# change to a known sub-dir of your home directory
+cd ~/Desktop
+
+# change to a sub-dir of the parent dir
+cd ../music
+\end{verbatim}
+
+It is essential in command-line environments that you are comfortable navigating around the filesystem.
+
 \subsection{Features}
 
 Shells normally provide:
@@ -27,17 +62,26 @@ Shells normally provide:
   \item Standard input from a file.
   \item Piping the standard output of one command to the standard input of another.
   \end{enumerate}
-\item[Scripting] a sequence of commands to be written.
+\item[Scripting] a sequence of commands to be performed.
 \item[Variables] to capture and recall information.
 \item[Control constructs] including conditionals, loops, possibly exceptions.
 \end{description}
 
 Different shells vary as to what extent they implement these features.
+We will focus here only on PowerShell in Windows and Bash in Linux. 
 
-\subsection{Terminal}
+\section{Terminal}
 
 The shell itself is normally accessed by means of a terminal.
-This is the program we visually see like the PowerShell Application or XTerm in Linux.
+This is the program we visually see like the PowerShell Application or XTerm in Linux that encapsulates the terminal program with the GUI environment.
+Examples of terminals:
+
+\begin{description}
+\item[GUI terminals ] like Windows Terminal, XTerm, Terminal.app
+\item[Framebuffer console] on Windows when the GUI is not running.
+\item[Serial console] over a serial port (often seen on embedded devices).
+\item[Remote network terminals] using telnet or more usually SSH.
+\end{description}
 
 \section{Secure Shell}
 
@@ -121,8 +165,8 @@ From the directory listing:
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
--a----       16/10/2020     15:19           3243 id_rsa
--a----       16/10/2020     15:19            749 id_rsa.pub
+-a----       16/10/2020     15:19           3243 id_ed25519
+-a----       16/10/2020     15:19            749 id_ed25519.pub
 -a----       16/10/2020     15:32            176 known_hosts
 \end{verbatim}
 
@@ -130,8 +174,8 @@ The public key is stored in \texttt{id\_rsa.pub}.
 The private key is stored in \texttt{id\_rsa}.
 
 You can of course copy these files to/from a memory stick or online storage.
-Remember though that if your private key is compromised,
-anybody can use it.
+Remember though that if your private key is compromised, anybody can use it.
+Best to protect it with a passphrase!
 
 \subsection{Connecting over SSH}
 \label{connecting-over-ssh}
@@ -156,7 +200,7 @@ Are you sure you want to continue connecting (yes/no)?
 Just type \texttt{yes} here.
 Your local SSH client is just confirming it hasn't seen this machine before.
 If a different key fingerprint shows for the same IP you'll get a warning, which means a host has been changed for another.
-If you see something like the following then you're connected:
+If you see something like the following (on Linux) then you're connected:
 
 \begin{verbatim}
        __|  __|_  )
