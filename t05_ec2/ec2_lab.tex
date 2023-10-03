@@ -1,30 +1,6 @@
 \chapter{EC2 lab}
 
-\section{Check your setup}
-
-Before starting, open PowerShell/Bash and run:
-\begin{minted}{powershell}
-# change to where you've cloned the folder
-cd ~/Desktop/cloud_foundations
-
-# run the lab checks script:
-./lab_checks.ps1
-# fix any issues identified before continuing
-
-# then change to the ec2 topic folder
-cd *_ec2
-\end{minted}
-
 \section{VPC creation}
-
-\subsection{Check script}
-
-After each step you should run the check script and confirm that the step has been done correctly.
-\begin{verbatim}
-./check_lab_vpc.ps1
-\end{verbatim}
-
-\subsection{Creation steps}
 
 \begin{enumerate}
 
@@ -54,6 +30,17 @@ After each step you should run the check script and confirm that the step has be
 \item 
   Add a rule to your security group permit SSH traffic (TCP port 22) inbound from anywhere on the internet (0.0.0.0/0).
   
+\end{enumerate}
+
+\section{SSH key setup}
+
+\begin{enumerate}
+\item Open your public key using PuttyGen.
+\item Copy the public key (for pasting into OpenSSH authorized keys)
+\item Go to EC2 and then Key Pairs in the AWS Console.
+\item Choose Import Key
+\item Name the key pair MAIN\_KEY. 
+\item Paste the key you copied into the box.
 \end{enumerate}
 
 \section{EC2 instance}
@@ -95,12 +82,11 @@ Create EC2 instance as follows:
 
 \item Click the copy button beside Public IPv4 address.
 
-\item In PowerShell/Bash type:
-\begin{verbatim}
-ssh ec2-user@<Public IP here>
-# example:
-ssh ec2-user@3.251.82.154
-\end{verbatim}
+\item Open PuTTY, type the EC2 IP address into the box.
+
+\item Go to connection, data and put \texttt{ec2-user} under the auto login username.
+
+\item Go to connection, SSH, Auth and choose the private key file in the private key file for authentication box. 
 
 \item
 The first time you connect to a host you'll get a warning:
@@ -111,7 +97,7 @@ ECDSA key fingerprint is SHA256:8omkD5RLibZNgJJ/B7MAnL7IbEcrmCmIWFdQXbjJf60.
 Are you sure you want to continue connecting (yes/no)?
 \end{verbatim}
 
-Just type \texttt{yes} here.
+This is OK!
 
 \item 
 If you see something like the following then you're connected:
