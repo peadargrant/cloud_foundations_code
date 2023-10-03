@@ -135,8 +135,26 @@ on the server(s) you want to log in to. (The public key can be freely
 shared around, even put up in public.)
 \end{description}
 
-\subsection{Creating key pair (windows 10, mac, linux)}
-\label{sec:creating-key-pair}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1.0\linewidth]{key_pair}
+  \caption{Key-based authentication}
+  \label{fig:ssh-key-authentication}
+\end{figure}
+
+\subsection{Creating key pair (windows using PuTTYGen)}
+\label{sec:creating-key-pair-windows}
+
+PuTTYgen is a key generator tool for Windows.
+It's bundled with PuTTY.
+Start PuTTYgen.
+Chose Ed25519 as the key type and hit Generate.
+Move the mouse over the blank area to create some randomness.
+Then save the Private Key file to a known location on your computer.
+
+
+\subsection{Creating key pair (mac, linux)}
+\label{sec:creating-key-pair-unix}
 
 Key pairs are normally and ideally created on your own local client computer.
 Key pairs only need to be generated once.
