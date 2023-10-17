@@ -1,6 +1,5 @@
-
 \chapter{EC2 Windows}
-
+\label{ch:ec2-windows}
 
 \section{Remote access}
 
@@ -140,13 +139,14 @@ routers automatically.
 % The ``standard'' windows image we will use is
 % \texttt{Windows\_Server-2019-English-Full-Base}.
 
-\section{Provisioning a Windows
-Instance}\label{provisioning-a-windows-instance}
+\section{Provisioning a Windows Instance}
+\label{sec:provisioning-a-windows-instance}
 
 These steps assume you are familiar with provisioning a linux instance
 from the previous week's lab.
 
-\subsection{Launching the instance}\label{launching-the-instance}
+\subsection{Launching the instance}
+\label{sec:launching-the-instance}
 
 To start a Windows instances, we mainly need the same set of
 information:
@@ -154,13 +154,13 @@ information:
 \begin{itemize}
 \item
   The AMI of the Windows image. We will use \emph{Microsoft Windows
-  Server 2019 Base}. Check the AMI as it appears on your own account.
+  Server 2022 Base}. Check the AMI as it appears on your own account.
 \item
   The Subnet ID to launch the instance into. (Which links us to a specific VPC)
 \item
-  The instance type (from \texttt{aws\ ec2\ describe-instance-types})
+  The instance type 
 \item
-  Security Group ID
+  Security Group
 \item
   The \textbf{SSH key pair}:
 \end{itemize}
@@ -178,10 +178,7 @@ IP and the password for the administrator account.
 
 To get the password data for a given instance ID in the AWS Console, select the Instances.
 Under Actions / Security select Get Windows Password.
-Browse for your Private Key in:
-\begin{verbatim}
-C:\Users\yourname\.ssh\id_rsa [not pub!]
-\end{verbatim}
+Browse for your Private Key file.
 
 If the password is blank, it means that the post-launch setup hasn't yet
 completed. Just pause here and try it again in a couple of minutes.
@@ -189,8 +186,8 @@ completed. Just pause here and try it again in a couple of minutes.
 The decrypted password shown matches the Windows local Administrator
 account.
 
-\subsection{Connecting with the graphical
-client}\label{connecting-with-the-graphical-client}
+\subsection{Connecting with the graphical client}
+\label{sec:connecting-with-the-graphical-client}
 
 Look for Remote Desktop Connnection in the start menu. Use the IP
 address, username Administrator, and the password and hit Connect.
@@ -202,12 +199,11 @@ password.
 
 \section{SSH server on Windows}\label{ssh-server-on-windows}
 
-Remote Desktop is just one way to access a Windows server for
-management. Windows now supports SSH access to the command-prompt (and
-to PowerShell).
+Remote Desktop is just one way to access a Windows server for management.
+Windows now supports SSH access to the command-prompt (and to PowerShell).
 
-\subsection{Checking if OpenSSH is
-installed}\label{checking-if-openssh-is-installed}
+\subsection{Checking if OpenSSH is installed}
+\label{checking-if-openssh-is-installed}
 
 On your AWS Windows Server open PowerShell and type
 
