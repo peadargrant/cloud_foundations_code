@@ -1,8 +1,5 @@
 \chapter{Command Line Interface Setup}
-
-
-This lab will setup your local PC environment and familiarise you with key operations we will use each week.
-The lab PCs have most of the software required already installed.
+\label{ch:cli-setup}
 
 \section{Using your own computer}
 
@@ -10,8 +7,7 @@ If you're on a lab computer then skip ahead to \autoref{sec:powershell-execution
 I only support the lab configuration but you are welcome to try out and use your own machine (incl. MacOS, Linux etc) if you can support it yourself.
 All of the software used here is cross-platform.
 
-Mac, Linux, Unix users will have no problems installing the AWS CLI, and
-the commands work identically to those on Windows.
+Mac, Linux, Unix users will have no problems installing the AWS CLI, and the commands work identically to those on Windows.
 
 
 \subsection{Software installation}
@@ -76,58 +72,7 @@ It will prompt first for an access key.
 \item At the next prompt for output format, just press enter again.
 \end{enumerate}
 
-\subsection{Check script}\label{check-script}
-
-Run the \texttt{lab\_checks.ps1} powershell script from the main folder to confirm that your environment is set up correctly.
-You can ignore the SSH key warnings, we will set this up next.
-
-\subsection{Saving credentials to onedrive}
-
-The college maps your OneDrive as Drive O:.
-I have provided scripts to let you save your credentials from the local machine to your OneDrive.
-\begin{verbatim}
-# Save credentials to onedrive
-./save_credentials_to_onedrive.ps1
-
-# Load credentials from onedrive
-./load_credentials_from_onedrive.ps1
-\end{verbatim}
 
 
-\section{SSH key}
-
-Last year we used SSH keys given to us by the AWS Academy environment.
-This year we will generate and use our own.
-
-\textbf{If you already have an SSH key that you use already:} you should continue to use it.
-Talk to me \textbf{before} attempting any of the instructions below as some steps are unnecessary and may erase your key.
-
-\subsection{Generating keys}
-
-We will generate an SSH keypair using the following command:
-\begin{verbatim}
-ssh-keygen -t rsa -b 4096
-\end{verbatim}
-You can hit enter to bypass the passphrase requirement.
-The default save location is fine.
-
-\subsection{Importing your SSH key}
-
-The following command will import the public key into your AWS account with the name \texttt{MAIN\_KEY} (ignore the line breaks):
-\begin{verbatim}
-aws ec2 import-key-pair --key-name MAIN_KEY
- --public-key-material fileb://~/.ssh/id_rsa.pub 
-\end{verbatim}
-
-\subsection{Saving keys to onedrive}
-
-As with your AWS credentials, I have provided scripts to let you save your keys from the local machine to your OneDrive.
-\begin{verbatim}
-# Save key to onedrive
-./save_key_to_onedrive.ps1
-
-# Load key from onedrive
-./load_key_from_onedrive.ps1
-\end{verbatim}
 
 
