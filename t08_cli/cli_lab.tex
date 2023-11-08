@@ -56,10 +56,16 @@ Answer \textit{all} when prompted.
 \label{sec:setup-aws-command-line-interface}
 
 \begin{enumerate}
-\item Log in to the AWS CLI.
-\item Click your name in the top right and then Security Credentials.
-\item Scroll down to the Access Keys section and hit Create access key.
-\item For now check the box beside \textit{I understand creating a root access key is not a best practice, but I still want to create one} prompt and hit Create access key.
+\item Log in to the AWS Console.
+\item Search for IAM.
+\item Create a new User Group called 'me' and add permissions AdministratorAccess. 
+\item Create a new IAM User.  Use a simple name like lab or home.
+\item Leave permissions option set to Add User to group and tick the me group.
+\item In the summary page click Create user button at the bottom.
+\item Click into your newly created user in the list and click Security credentials.
+\item Click Create Access Key.
+\item Click Other in the list (last item) and click Next.
+\item Click Create Access Key. LEAVE THIS WINDOW OPEN. 
 \item In PowerShell run:
 \begin{verbatim}
 aws configure
@@ -69,7 +75,19 @@ It will prompt first for an access key.
 \item In your web browser press Show beside Secret access key.
 \item Click the copy button left of the secret access key. Paste into Powershell (right click pastes). Press enter. You should see a prompt for default region name.
 \item Type \texttt{eu-west-1} and press enter.
-\item At the next prompt for output format, just press enter again.
+\item At the next prompt for output format, just leave it blank and press enter again.
+\item To test if your setup is OK try the command
+\begin{verbatim}
+aws sts get-caller-identity
+\end{verbatim}
+It should show something like
+\begin{verbatim}
+{
+    "UserId": "AZZWSPAIKW5JIDD3K3OYE",
+    "Account": "601113240434",
+    "Arn": "arn:aws:iam::601113240434:user/pgcli"
+}
+\end{verbatim}
 \end{enumerate}
 
 
