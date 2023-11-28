@@ -62,7 +62,6 @@ There are some important properties that distinguish SNS from queueing
 systems (like SQS):
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
 \item
   Messages always attempted to be delivered to all topic subscribers
   (fan-out, ).
@@ -197,8 +196,7 @@ component (7) identifies the subscription.
 aws sns get-subscription-attributes  --subscription-arn $SubscriptionArn
 \end{verbatim}
 
-Check output of \texttt{get-subscription-attributes} for
-\texttt{PendingConfirmation}.
+Check output of \texttt{get-subscription-attributes} for \texttt{PendingConfirmation}.
 
 \subsection{Unsubscribing}\label{unsubscribing}
 
@@ -253,5 +251,6 @@ Document the required commands in your notes for each step.
     happens.
   \end{itemize}
 \end{enumerate}
+
 
 
