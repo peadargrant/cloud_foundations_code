@@ -5,7 +5,23 @@ Any item on the course is liable to be asked in any question anywhere in the exa
 
 Specific interest areas for study:
 
--	 To be confirmed.
+General cloud knowledge:
+5 characteristics of a cloud service [ On-demand self service,  Broad network , Rapid elasticity, Resource Pooling, Metered service ]
+Promises, Limitations, Obligations - example of each cloud
+Example of how EC2, S3, is charged for.  
+	
+CLI: aws ec2 describe-subnets
+Steps to creating VPC
+Windows password
+
+Iaas vs Paas
+EC2 Instance Profile / Role applied to instance to provide credentials
+^ auto-starting scripts at EC2 start
+
+Shared responsibility model of cloud computing
+Passwords vs SSH keys
+IAM user example
+
 	
 Advice:
 
